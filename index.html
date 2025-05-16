@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading video...</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-video-container">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="background2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="overlay">
+        <div class="content-container">
+            <h1 id="loadingMessage">Video is loading, please wait...</h1>
+            <p id="countdownTimer" aria-live="polite">4</p>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const countdownElement = document.getElementById('countdownTimer');
+        // Updated redirect URL as per your request
+        const redirectUrl = 'https://go.rmhfrtnd.com?userId=ccee5d714bb0d20389b5a836219d0e0ba1c0af90c35c74b00ea6f1ca1cfda01b';
+        let timeLeft = 4; // The number to start counting down from
+
+        // Display the initial value immediately
+        countdownElement.textContent = timeLeft;
+
+        const countdownInterval = setInterval(() => {
+            timeLeft--; // Decrement timeLeft first for the next display state
+
+            if (timeLeft >= 0) {
+                countdownElement.textContent = timeLeft; // Display the new timeLeft (e.g., 3, 2, 1, 0)
+                
+                if (timeLeft === 0) {
+                    clearInterval(countdownInterval); // Stop the interval when timeLeft reaches 0
+                    window.location.href = redirectUrl; // Redirect when 0 is displayed
+                }
+            } else {
+                // This case should ideally not be reached if timeLeft === 0 clears the interval.
+                // Fallback to clear interval if something unexpected happens.
+                clearInterval(countdownInterval);
+            }
+        }, 1000); // Run every 1 second
+
+    </script>
+</body>
+</html>
